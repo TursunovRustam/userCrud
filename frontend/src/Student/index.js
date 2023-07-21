@@ -25,11 +25,11 @@ function Index() {
     function addUser() {
         if (edit) {
             axios({
-                url: "http://localhost:8080/api/user/"+id,
+                url: "http://localhost:8080/api/user/edit/"+id,
                 method: "PUT",
                 data: {
-                    firstname: firstname,
-                    lastname: lastname,
+                    firstName: firstname,
+                    lastName: lastname,
                     age
                 }
             }).then((res) => {
@@ -48,6 +48,7 @@ function Index() {
                     age
                 }
             }).then((res) => {
+                toggle();
                getStudents()
             })
         }
@@ -55,6 +56,8 @@ function Index() {
 
     function toggle() {
         setVis(p => !p)
+        setFirstname("")
+        setLastname("")
     }
 
     function deleteStudent(id) {
@@ -70,8 +73,8 @@ function Index() {
         setEdit(true)
         toggle()
         setId(item.id)
-        setFirstname(item.firstname)
-        setLastname(item.lastname)
+        setFirstname(item.firstName)
+        setLastname(item.lastName)
         setAge(item.age)
     }
     return (

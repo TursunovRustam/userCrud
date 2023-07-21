@@ -22,10 +22,11 @@ public class UserController {
     private HttpEntity<?> getUsers(){
         return ResponseEntity.ok(userService.getUsers());
     }
-    @PutMapping("/{id}")
+    @PutMapping("/edit/{id}")
     private HttpEntity<?> editUser(@RequestBody User user, @PathVariable("id") UUID id){
-        user.setId(id);
-        return ResponseEntity.ok(userService.editUsers(user));
+        System.out.println(id);
+        System.out.println(user);
+        return ResponseEntity.ok(userService.editUsers(user,id));
     }
     @DeleteMapping("/{id}")
     private HttpEntity<?> deleteUser(@PathVariable("id") UUID id){

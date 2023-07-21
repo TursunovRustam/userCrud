@@ -8,6 +8,6 @@ import java.util.UUID;
 public interface UserService {
     User saveUser(User user);
     List<User> getUsers();
-    User editUsers(User user);
+    User editUsers(User user, UUID id);
     void deleteUsers(UUID id);
 }

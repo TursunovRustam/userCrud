@@ -23,8 +23,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User editUsers(User user) {
-        return userRepo.save(user);
+    public User editUsers(User user, UUID id) {
+        User edit = new User(id, user.getFirstName(), user.getLastName(), user.getAge());
+        return userRepo.save(edit);
     }
 
     @Override
